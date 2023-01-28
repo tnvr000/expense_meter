@@ -15,5 +15,9 @@
       <%= form.password_field(:password, required: true) %>
     </div>
   </div>
+  <div>
+    <%= form.check_box(:remember_me) %>
+    <%=form.label(:remember_me) %>
+  </div>
   <%= form.submit('Sign In') %>
 <% end %>
