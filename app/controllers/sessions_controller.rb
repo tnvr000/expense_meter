@@ -16,9 +16,10 @@ class SessionsController < ApplicationController
     render_login_error and return if @user.blank?
 
     if @user.authenticate(params[:user][:password])
+      after_sign_in_path = session[:user_return_to] || root_path
       login(@user)
       remember(@user) if params[:user][:remember_me] == '1'
-      redirect_to(root_path, notice: 'Signed in')
+      redirect_to(after_sign_in_path, notice: 'Signed in')
     else
       render_login_error
     end
