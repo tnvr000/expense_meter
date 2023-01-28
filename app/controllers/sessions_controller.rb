@@ -17,8 +17,8 @@ class SessionsController < ApplicationController
 
     if @user.authenticate(params[:user][:password])
       after_sign_in_path = session[:user_return_to] || root_path
-      login(@user)
-      remember(@user) if params[:user][:remember_me] == '1'
+      active_session = login(@user)
+      remember(active_session) if params[:user][:remember_me] == 'true'
       redirect_to(after_sign_in_path, notice: 'Signed in')
     else
       render_login_error
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
   # DELETE /sign_out
   # before_actions - authenticate_user!
   def destroy
-    forget(current_user)
+    forget_active_session
     logout
     redirect_to(root_path, notice: 'Signed out')
   end
