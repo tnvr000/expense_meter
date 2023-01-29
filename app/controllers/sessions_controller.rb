@@ -13,15 +13,15 @@ class SessionsController < ApplicationController
   # POST /sign_in
   # before_actions - redirect_if_authenticated, fetch_user
   def create
-    render_login_error and return if @user.blank?
+    render_sign_in_error and return if @user.blank?
 
     if @user.authenticate(params[:user][:password])
       after_sign_in_path = session[:user_return_to] || root_path
-      active_session = login(@user)
+      active_session = sign_in(@user)
       remember(active_session) if params[:user][:remember_me] == 'true'
       redirect_to(after_sign_in_path, notice: 'Signed in')
     else
-      render_login_error
+      render_sign_in_error
     end
   end
 
@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
   # before_actions - authenticate_user!
   def destroy
     forget_active_session
-    logout
+    sign_out
     redirect_to(root_path, notice: 'Signed out')
   end
 
@@ -39,7 +39,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:user][:email].downcase)
   end
 
-  def render_login_error
+  def render_sign_in_error
     flash.now[:alert] = 'Incorrect email or password'
     render(:new, status: :unprocessable_entity)
   end

@@ -10,7 +10,7 @@ module Authentication
     helper_method :user_signed_in?
   end
 
-  def login(user)
+  def sign_in(user)
     reset_session
     active_session = user.active_sessions.create!(user_agent: request.user_agent, ip_address: request.ip)
     session[:current_active_session_id] = active_session.id
@@ -18,7 +18,7 @@ module Authentication
     active_session
   end
 
-  def logout
+  def sign_out
     active_session = ActiveSession.find_by(id: session[:current_active_session_id])
     reset_session
     active_session.destroy! if active_session.present?
