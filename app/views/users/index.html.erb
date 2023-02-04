@@ -1,0 +1,21 @@
+<div>
+  <%= link_to('Edit', edit_user_path(current_user)) %>
+</div>
+<div>
+  <div>
+    <div><strong>Email</strong></div>
+    <div><%= current_user.email %></div>
+  </div>
+  <div>
+    <div><strong>Name</strong></div>
+    <div><%= @profile.name %></div>
+  </div>
+  <div>
+    <div><strong>Date of Birth</strong></div>
+    <div><%= @profile.date_of_birth&.strftime('%d-%m-%Y') %></div>
+  </div>
+  <div>
+    <div><strong>Gender</strong></div>
+    <div><%= @profile.gender %></div>
+  </div>
+</div>

@@ -2,6 +2,8 @@
   <h1>Expense Meter</h1>
 </header>
 <div>
+  <%= link_to('Home', root_path) %>
+  <%= link_to('Profile', users_path) %>
   <% if user_signed_in? %>
     <%= link_to('Sign Out', sign_out_path, data: { turbo_method: :delete }) %>
   <% else %>

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'sign_in', to: 'sessions#create'
   delete 'sign_out', to: 'sessions#destroy'
 
+  resources :users, only: %i[index edit update]
   resources :active_sessions, only: %i[index destroy] do
     collection do
       delete 'destroy_all'

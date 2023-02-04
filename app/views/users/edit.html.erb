@@ -1,0 +1,24 @@
+<div>
+  <%= link_to('Back', users_path) %>
+
+  <%= form_with(model: @profile, url: user_path(current_user)) do |f| %>
+    <%= render(partial: 'shared/form_errors', locals: { object: @profile }) if @profile.errors.any? %>
+    <div>
+      <div><%= f.label :first_name %></div>
+      <div><%= f.text_field :first_name %></div>
+    </div>
+    <div>
+      <div><%= f.label :last_name %></div>
+      <div><%= f.text_field :last_name %></div>
+    </div>
+    <div>
+      <div><%= f.label :date_of_birth %></div>
+      <div><%= f.date_field :date_of_birth %></div>
+    </div>
+    <div>
+      <div><%= f.label :gender %></div>
+      <div><%= f.select :gender, options_for_gender %></div>
+    </div>
+    <%= f.submit 'Update' %>
+  <% end %>
+</div>
