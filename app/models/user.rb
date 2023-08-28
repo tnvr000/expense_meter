@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :profile
   has_many :active_sessions, dependent: :destroy
+  has_many :expenses
 
   before_save :downcase_email
   after_create :prepare_user

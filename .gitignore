@@ -32,3 +32,6 @@
 
 # vs code configuretion files
 /.vscode
+
+# ignore rough file
+/rough.md
