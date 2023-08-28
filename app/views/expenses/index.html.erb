@@ -1,0 +1,8 @@
+<div class="expenses">
+  <% @expenses.each do |expense| %>
+    <div class="expense">
+      <div><strong>Description: </strong> <%= expense.description %>
+      <div><strong>Amount: </strong> <%= expense.amount %>
+    </div>
+  <% end %>
+</div>
