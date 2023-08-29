@@ -1,0 +1,15 @@
+<div>
+  <div>
+    <strong>description: </strong> <%= @expense.description %>
+  </div>
+  <div>
+    <strong>Amount: </strong> <%= @expense.amount %>
+  </div>
+  <div>
+    <strong>Date: </strong> <%= @expense.date_created_on %>
+  </div>
+</div>
+<div>
+  <%= link_to('Back', expenses_path) %>
+  <%= link_to('Edit', edit_expense_path(@expense)) %>
+</div>

@@ -25,8 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_141623) do
   create_table "expenses", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "description"
-    t.date "date_create_on"
-    t.time "time_create_on"
+    t.date "date_created_on"
+    t.time "time_created_on"
     t.float "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
