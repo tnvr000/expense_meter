@@ -7,9 +7,13 @@
     <%= f.label :amount %>
     <%= f.text_field :amount %>
   </div>
-  <div>
+  <div data-controller="current-date">
     <%= f.label :date_created_on, "Date" %>
-    <%= f.date_field :date_created_on %>
+    <%= f.date_field :date_created_on, "data-current-date-target"=>"date" %>
+  </div>
+  <div data-controller="current-time">
+    <%= f.label :time_created_on, "Time" %>
+    <%= f.time_field :time_created_on, "data-current-time-target"=>"time" %>
   </div>
   <%= f.submit %>
 <% end %>
