@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_02_04_141623) do
-  create_table "active_sessions", charset: "utf8mb4", force: :cascade do |t|
+  create_table "active_sessions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "user_agent"
     t.string "ip_address"
@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_141623) do
     t.index ["user_id"], name: "index_active_sessions_on_user_id"
   end
 
-  create_table "expenses", charset: "utf8mb4", force: :cascade do |t|
+  create_table "expenses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "description"
     t.date "date_created_on"
@@ -33,7 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_141623) do
     t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
-  create_table "profiles", charset: "utf8mb4", force: :cascade do |t|
+  create_table "profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "first_name"
     t.string "last_name"
@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_141623) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email"
     t.string "password_digest", null: false
     t.datetime "created_at", null: false

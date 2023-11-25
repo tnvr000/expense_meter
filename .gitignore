@@ -35,3 +35,6 @@
 
 # ignore rough file
 /rough.md
+
+# rails erd file
+/database_schema.pdf
