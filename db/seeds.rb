@@ -18,6 +18,160 @@ users = [
   }
 ]
 
+categories = {
+  'Income' => [
+    'Paycheck',
+    'Salary',
+    'Sale',
+    'Rental',
+    'Lottery',
+    'Loan',
+    'Interest',
+    'Profit',
+    'Gift',
+    'Dues',
+    'Pridictable Bonus'
+  ],
+  'Housing' => [
+    'Mortgage',
+    'Rent',
+    'Renter Insurance',
+    'Property Tax',
+    'Repairs',
+    'HOA Fees',
+    'Large Appliances',
+    'Maintenance'
+  ],
+  'Transportation' => [
+    'Maintenance',
+    'Rentals',
+    'Oil Change',
+    'Parking Fees',
+    'Repairs',
+    'Registration',
+    'DMV Fees',
+    'Toll Payment',
+    'Public Transportation',
+    'Fuel'
+  ],
+  'Food' => [
+    'Groceries',
+    'Resraurants',
+    'Snacks',
+    'Fast Food',
+    'Meal'
+  ],
+  'Utilities' => [
+    'Electricity',
+    'Water',
+    'Garbage',
+    'LPG',
+    'Phones',
+    'Cable',
+    'Internet'
+  ],
+  'Healthcare' => [
+    'Prinary Care',
+    'Specialty Care',
+    'Urgent Care',
+    'Medication',
+    'Medical Devices'
+  ],
+  'Insurance' => [
+    'Auto Insurance',
+    'Life Insurance',
+    'Health Insurance',
+    'Disabilities Insurance',
+    'Rental Insurance',
+    'Home Warrenty'
+  ],
+  'Household Supplies' => [
+    'Toiletries',
+    'Laundry Detergent',
+    'Dishwasher Detergent',
+    'Cleaning Supplies',
+    'Tool',
+    'Napkin',
+    'Paper Towel',
+    'Toilet Paper',
+    'Small Appliances',
+    'Emergency Kits'
+  ],
+  'Personal' => [
+    'Gym Membership',
+    'Cloth',
+    'Shoe',
+    'Haircut',
+    'Cosmetics',
+    'Babysitter',
+    'accessories',
+    'Jwellery',
+    'kids'
+  ],
+  'Loan' => [
+    'Personal Loan',
+    'Student Loan',
+    'Auto Loan',
+    'Credit Card'
+  ],
+  'Financial Expenses' => [
+    'Advisary',
+    'Charges',
+    'Child Support',
+    'Fines',
+    'Loans',
+    'Taxes',
+    'Investments'
+  ],
+  'Education' => [
+    'Book',
+    'College Fees',
+    'School Fees',
+    'School Supplies',
+    'Private Tuition',
+    'Stationery',
+    'Summer Camp',
+    'Daycare'
+  ],
+  'Saving' => [
+    'Emergency Fund',
+    'Big Purchase',
+    'Other Saving'
+  ],
+  'Gift' => [
+    'Birthday',
+    'Anniversary',
+    'Wedding',
+    'Festival',
+    'Special Occasion',
+    "Zak'at"
+  ],
+  'Entertainment' => [
+    'Games',
+    'Movies',
+    'Concert',
+    'Vacation',
+    'Subscription'
+  ],
+  'Pets' => [
+    'Grooming',
+    'Pet Food',
+    'Pet Accessories',
+    'Veterinary Visits'
+  ],
+  'Miscellaneous' => [
+    'Bank Fees',
+    'Credit Card Fees',
+    'Professional Dues',
+    'State and Federal Taxes',
+    'Other'
+  ]
+}
+
+categories.each_key do |primary_category|
+  PrimaryCategory.create!(name: primary_category)
+end
+
 expenses = [
   {
     user_id: Random.rand(1..users.length),

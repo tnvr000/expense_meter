@@ -1,0 +1,8 @@
+<%= link_to('Back', root_path) %>
+<div>
+  <% @primary_categories.each do |primary_category| %>
+    <div>
+      <strong>Name: </strong> <%= primary_category.name %>
+    </div>
+  <% end %>
+</div>

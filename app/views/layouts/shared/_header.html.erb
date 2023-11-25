@@ -4,6 +4,7 @@
 <div>
   <%= link_to('Home', root_path) %>
   <%= link_to('Profile', users_path) %>
+  <%= link_to('Primary Categories', primary_categories_path) %>
   <%= link_to('Expenses', expenses_path) %>
   <% if user_signed_in? %>
     <%= link_to('Sign Out', sign_out_path, data: { turbo_method: :delete }) %>
