@@ -3,6 +3,7 @@
   <% @primary_categories.each do |primary_category| %>
     <div>
       <strong>Name: </strong> <%= primary_category.name %>
+      <%= link_to("(#{primary_category.category_count})", primary_category_path(primary_category)) %>
     </div>
   <% end %>
 </div>

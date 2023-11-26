@@ -20,6 +20,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :primary_categories, only: %i[index]
+  resources :primary_categories, only: %i[index show]
   resources :expenses
 end

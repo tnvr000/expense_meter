@@ -168,10 +168,6 @@ categories = {
   ]
 }
 
-categories.each_key do |primary_category|
-  PrimaryCategory.create!(name: primary_category)
-end
-
 expenses = [
   {
     user_id: Random.rand(1..users.length),
@@ -236,10 +232,27 @@ expenses = [
   },
 ]
 
-users.each do |user|
-  User.create(user)
+def save_record(record)
+  record.save!
+  puts "#{record.class.to_s.titlecase} #{record.id} Created"
 end
 
-expenses.each do |expense|
-  Expense.create(expense)
+categories.each_key do |primary_category_name|
+  primary_category = PrimaryCategory.new(name: primary_category_name)
+  save_record(primary_category)
+
+  categories[primary_category_name].each do |category_name|
+    category = primary_category.categories.build(name: category_name, editable: false)
+    save_record(category)
+  end
+end
+
+users.each do |user_params|
+  user = User.new(user_params)
+  save_record(user)
+end
+
+expenses.each do |expense_params|
+  expense = Expense.new(expense_params)
+  save_record(expense)
 end
